@@ -93,7 +93,7 @@ class WineQuest {
         // Update wine display
         this.displayWine(question.wine, question.age);
         
-        // Update question
+        // Update question with educational context
         document.getElementById('question-text').textContent = question.question;
         
         // Update answer buttons

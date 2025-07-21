@@ -204,12 +204,16 @@ p { margin-bottom: var(--spacing-sm); }
 /* Game Screen */
 .game-content {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
     min-height: 600px;
+    grid-template-areas: 
+        "wine-display wine-info"
+        "question question";
 }
 
 .wine-display {
+    grid-area: wine-display;
     background: var(--white);
     border-radius: var(--border-radius);
     padding: var(--spacing-xl);
@@ -218,6 +222,7 @@ p { margin-bottom: var(--spacing-sm); }
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .wine-glass-container {
@@ -238,22 +243,6 @@ p { margin-bottom: var(--spacing-sm); }
     transform: scale(1.02);
 }
 
-.wine-info {
-    text-align: center;
-    max-width: 400px;
-}
-
-.wine-info h3 {
-    font-size: 1.8rem;
-    color: var(--wine-burgundy);
-    margin-bottom: var(--spacing-xs);
-}
-
-.wine-info p {
-    color: var(--text-secondary);
-    font-style: italic;
-    margin-bottom: var(--spacing-md);
-}
 
 .characteristics {
     display: flex;
@@ -273,22 +262,53 @@ p { margin-bottom: var(--spacing-sm); }
 }
 
 /* Education Panel */
-.education-panel {
+/* Wine Information Panel */
+.wine-info-panel {
+    grid-area: wine-info;
     background: var(--cream-light);
     border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
-    box-shadow: 0 4px 15px var(--shadow-light);
-    border: 1px solid var(--gold-accent);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 2px solid var(--gold-accent);
+}
+
+.wine-info-panel h3 {
+    font-size: 2rem;
+    color: var(--wine-burgundy);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.wine-info-panel > p {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    font-size: 1.1rem;
     margin-bottom: var(--spacing-lg);
 }
 
-.education-panel h4 {
+.wine-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.characteristics-section,
+.educational-section {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--gold-accent);
+}
+
+.characteristics-section h4,
+.educational-section h4 {
     color: var(--wine-burgundy);
     font-size: 1.1rem;
     margin-bottom: var(--spacing-sm);
 }
 
-.education-panel p {
+.educational-section p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -297,10 +317,21 @@ p { margin-bottom: var(--spacing-sm); }
 
 /* Question Area */
 .question-area {
+    grid-area: question;
     background: var(--white);
     border-radius: var(--border-radius);
     padding: var(--spacing-lg);
-    box-shadow: 0 4px 15px var(--shadow-light);
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 2px solid var(--wine-burgundy);
+    margin-top: var(--spacing-lg);
+}
+
+.question-prompt {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--gold-light);
+    border-radius: var(--border-radius-sm);
     border: 1px solid var(--gold-accent);
 }
 
@@ -508,6 +539,10 @@ p { margin-bottom: var(--spacing-sm); }
     .game-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
+        grid-template-areas: 
+            \"wine-display\"
+            \"wine-info\"
+            \"question\";
     }
     
     .wine-display {

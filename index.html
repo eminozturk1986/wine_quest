@@ -96,28 +96,37 @@
                                 <ellipse cx="100" cy="270" rx="30" ry="8" fill="#E5E5E5"/>
                             </svg>
                         </div>
+                    </div>
+
+                    <!-- Wine Information Panel -->
+                    <div class="wine-info-panel">
+                        <h3 id="wine-name">Cabernet Sauvignon</h3>
+                        <p id="wine-description">Deep purple with inky center, showing youth and intensity</p>
                         
-                        <div class="wine-info">
-                            <h3 id="wine-name">Cabernet Sauvignon</h3>
-                            <p id="wine-description">Deep purple with inky center, showing youth and intensity</p>
-                            <div id="wine-characteristics" class="characteristics">
-                                <span class="characteristic">Full-bodied</span>
-                                <span class="characteristic">High tannins</span>
-                                <span class="characteristic">Blackcurrant</span>
-                                <span class="characteristic">Oak</span>
+                        <div class="wine-details">
+                            <div class="characteristics-section">
+                                <h4>Characteristics:</h4>
+                                <div id="wine-characteristics" class="characteristics">
+                                    <span class="characteristic">Full-bodied</span>
+                                    <span class="characteristic">High tannins</span>
+                                    <span class="characteristic">Blackcurrant</span>
+                                    <span class="characteristic">Oak</span>
+                                </div>
+                            </div>
+                            
+                            <div class="educational-section">
+                                <h4>Wine Knowledge:</h4>
+                                <p id="educational-tip">Cabernet Sauvignon's deep color comes from thick grape skins rich in anthocyanins, the compounds responsible for red wine's color.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Educational Panel -->
-                    <div class="education-panel">
-                        <h4>Did You Know?</h4>
-                        <p id="educational-tip">Cabernet Sauvignon's deep color comes from thick grape skins rich in anthocyanins, the compounds responsible for red wine's color.</p>
-                    </div>
-
-                    <!-- Question Area -->
+                    <!-- Question Area (Moved to Bottom) -->
                     <div class="question-area">
-                        <h3 id="question-text">What type of wine is this?</h3>
+                        <div class="question-prompt">
+                            <h3 id="question-text">Based on the information above, what type of wine is this?</h3>
+                        </div>
+                        
                         <div id="answer-buttons" class="answer-buttons">
                             <button class="btn btn-answer" data-answer="red">Red Wine</button>
                             <button class="btn btn-answer" data-answer="white">White Wine</button>

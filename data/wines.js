@@ -206,7 +206,7 @@ const LEVELS = {
             {
                 wine: "cabernet_sauvignon",
                 age: "young",
-                question: "What type of wine is this?",
+                question: "Based on the wine information above, what type of wine is this?",
                 answers: ["Red Wine", "White Wine", "Rosé Wine", "Sparkling Wine"],
                 correct: 0,
                 explanation: "The deep purple color is characteristic of red wines, particularly young Cabernet Sauvignon."
@@ -214,7 +214,7 @@ const LEVELS = {
             {
                 wine: "chardonnay",
                 age: "young",
-                question: "What type of wine is this?",
+                question: "Based on the wine information above, what type of wine is this?",
                 answers: ["Red Wine", "White Wine", "Rosé Wine", "Fortified Wine"],
                 correct: 1,
                 explanation: "The pale yellow color with green hints is typical of white wines like Chardonnay."
@@ -222,7 +222,7 @@ const LEVELS = {
             {
                 wine: "provence_rose",
                 age: "young", 
-                question: "What type of wine is this?",
+                question: "Based on the wine information above, what type of wine is this?",
                 answers: ["Light Red", "White Wine", "Rosé Wine", "Champagne"],
                 correct: 2,
                 explanation: "The pale pink color is characteristic of rosé wines, made with brief red grape skin contact."
