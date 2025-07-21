@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quest - Learn Wine Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-content">
+                <h1>Wine Quest</h1>
+                <div class="level-info">
+                    <span id="current-level">Level 1</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+                <div class="score-info">
+                    <span id="score">Score: 0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Container -->
+        <main id="game-container">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="start-content">
+                    <h2>Master the Art of Wine Recognition</h2>
+                    <p>Learn to identify wines by their color, characteristics, and aging patterns through 4 progressive levels.</p>
+                    
+                    <div class="level-preview">
+                        <div class="level-card">
+                            <h3>Level 1: Wine Colors</h3>
+                            <p>Learn basic wine color identification</p>
+                        </div>
+                        <div class="level-card">
+                            <h3>Level 2: Grape Varieties</h3>
+                            <p>Distinguish between different grape varieties</p>
+                        </div>
+                        <div class="level-card">
+                            <h3>Level 3: Wine Aging</h3>
+                            <p>Understand how aging affects wine color</p>
+                        </div>
+                        <div class="level-card">
+                            <h3>Level 4: Regional Styles</h3>
+                            <p>Identify terroir effects on wine appearance</p>
+                        </div>
+                    </div>
+                    
+                    <button id="start-btn" class="btn btn-primary">Start Wine Quest</button>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="game-screen" class="screen">
+                <div class="game-content">
+                    <!-- Wine Glass Display -->
+                    <div class="wine-display">
+                        <div class="wine-glass-container">
+                            <svg id="wine-glass" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Wine Glass SVG -->
+                                <defs>
+                                    <linearGradient id="wineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#722F37;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+                                    </linearGradient>
+                                    <radialGradient id="glassGradient" cx="50%" cy="30%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+                                    </radialGradient>
+                                </defs>
+                                
+                                <!-- Glass Bowl -->
+                                <path id="glass-bowl" d="M50 80 Q50 200 100 200 Q150 200 150 80 L150 60 L50 60 Z" 
+                                      fill="none" stroke="#E5E5E5" stroke-width="2"/>
+                                
+                                <!-- Wine -->
+                                <path id="wine-fill" d="M55 75 Q55 190 100 190 Q145 190 145 75 L145 65 L55 65 Z" 
+                                      fill="url(#wineGradient)" opacity="0.9"/>
+                                
+                                <!-- Glass Highlight -->
+                                <path d="M50 80 Q50 200 100 200 Q150 200 150 80 L150 60 L50 60 Z" 
+                                      fill="url(#glassGradient)"/>
+                                
+                                <!-- Stem -->
+                                <rect x="98" y="200" width="4" height="60" fill="#E5E5E5"/>
+                                
+                                <!-- Base -->
+                                <ellipse cx="100" cy="270" rx="30" ry="8" fill="#E5E5E5"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="wine-info">
+                            <h3 id="wine-name">Cabernet Sauvignon</h3>
+                            <p id="wine-description">Deep purple with inky center, showing youth and intensity</p>
+                            <div id="wine-characteristics" class="characteristics">
+                                <span class="characteristic">Full-bodied</span>
+                                <span class="characteristic">High tannins</span>
+                                <span class="characteristic">Blackcurrant</span>
+                                <span class="characteristic">Oak</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Educational Panel -->
+                    <div class="education-panel">
+                        <h4>Did You Know?</h4>
+                        <p id="educational-tip">Cabernet Sauvignon's deep color comes from thick grape skins rich in anthocyanins, the compounds responsible for red wine's color.</p>
+                    </div>
+
+                    <!-- Question Area -->
+                    <div class="question-area">
+                        <h3 id="question-text">What type of wine is this?</h3>
+                        <div id="answer-buttons" class="answer-buttons">
+                            <button class="btn btn-answer" data-answer="red">Red Wine</button>
+                            <button class="btn btn-answer" data-answer="white">White Wine</button>
+                            <button class="btn btn-answer" data-answer="rose">Rosé Wine</button>
+                            <button class="btn btn-answer" data-answer="sparkling">Sparkling Wine</button>
+                        </div>
+                        
+                        <div id="feedback" class="feedback hidden">
+                            <p id="feedback-text"></p>
+                            <button id="next-btn" class="btn btn-secondary">Next Question</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level Complete Screen -->
+            <div id="level-complete-screen" class="screen">
+                <div class="complete-content">
+                    <h2>Level Complete!</h2>
+                    <div class="level-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="level-score">8/10</span>
+                            <span class="stat-label">Correct Answers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="level-time">2:34</span>
+                            <span class="stat-label">Time Taken</span>
+                        </div>
+                    </div>
+                    <p id="level-feedback">Excellent work! You've mastered wine color identification.</p>
+                    
+                    <div class="button-group">
+                        <button id="next-level-btn" class="btn btn-primary">Next Level</button>
+                        <button id="replay-level-btn" class="btn btn-secondary">Replay Level</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Complete Screen -->
+            <div id="game-complete-screen" class="screen">
+                <div class="complete-content">
+                    <h2>Congratulations! Wine Master!</h2>
+                    <p>You've completed all levels and mastered wine recognition!</p>
+                    
+                    <div class="final-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="total-score">32/40</span>
+                            <span class="stat-label">Total Score</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="accuracy">80%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="restart-btn" class="btn btn-primary">Play Again</button>
+                        <button id="share-btn" class="btn btn-secondary">Share Score</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data/wines.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

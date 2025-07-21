@@ -1,0 +1,30 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="wineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#722F37;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+        </linearGradient>
+        <radialGradient id="glassGradient" cx="50%" cy="30%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+        </radialGradient>
+    </defs>
+    
+    <!-- Glass Bowl -->
+    <path d="M50 80 Q50 200 100 200 Q150 200 150 80 L150 60 L50 60 Z" 
+          fill="none" stroke="#E5E5E5" stroke-width="2"/>
+    
+    <!-- Wine -->
+    <path d="M55 75 Q55 190 100 190 Q145 190 145 75 L145 65 L55 65 Z" 
+          fill="url(#wineGradient)" opacity="0.9"/>
+    
+    <!-- Glass Highlight -->
+    <path d="M50 80 Q50 200 100 200 Q150 200 150 80 L150 60 L50 60 Z" 
+          fill="url(#glassGradient)"/>
+    
+    <!-- Stem -->
+    <rect x="98" y="200" width="4" height="60" fill="#E5E5E5"/>
+    
+    <!-- Base -->
+    <ellipse cx="100" cy="270" rx="30" ry="8" fill="#E5E5E5"/>
+</svg>

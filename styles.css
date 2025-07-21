@@ -1,0 +1,633 @@
+/* Wine Quest - Elegant Wine-Themed Styles */
+
+:root {
+    /* Wine-inspired Color Palette */
+    --wine-burgundy: #722F37;
+    --wine-deep: #5D1A1D;
+    --wine-light: #A0522D;
+    --gold-accent: #DAA520;
+    --gold-light: #F4E4BC;
+    --cream-bg: #FFF8DC;
+    --cream-light: #FFFEF7;
+    --text-primary: #2F1B14;
+    --text-secondary: #4A3429;
+    --white: #FFFFFF;
+    --success: #28a745;
+    --error: #dc3545;
+    --shadow: rgba(47, 27, 20, 0.15);
+    --shadow-light: rgba(47, 27, 20, 0.05);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Borders */
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--cream-bg) 0%, var(--cream-light) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--wine-deep);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+
+p { margin-bottom: var(--spacing-sm); }
+
+/* Header */
+.game-header {
+    background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: 0 4px 20px var(--shadow);
+    border-bottom: 3px solid var(--gold-accent);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--spacing-md);
+}
+
+.header-content h1 {
+    color: var(--wine-burgundy);
+    margin: 0;
+    font-size: 2rem;
+}
+
+.level-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background: var(--cream-bg);
+    border-radius: 4px;
+    border: 1px solid var(--gold-accent);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--wine-burgundy), var(--gold-accent));
+    transition: width 0.5s ease;
+    width: 0;
+}
+
+.score-info {
+    color: var(--wine-deep);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Main Content */
+#game-container {
+    flex: 1;
+    padding: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Start Screen */
+.start-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 2px solid var(--gold-accent);
+}
+
+.start-content h2 {
+    color: var(--wine-burgundy);
+    margin-bottom: var(--spacing-md);
+}
+
+.start-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.level-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.level-card {
+    background: var(--cream-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--gold-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.level-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.level-card h3 {
+    color: var(--wine-burgundy);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.level-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Game Screen */
+.game-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--spacing-xl);
+    min-height: 600px;
+}
+
+.wine-display {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 2px solid var(--gold-accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wine-glass-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+#wine-glass {
+    width: 300px;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+
+#wine-glass:hover {
+    transform: scale(1.02);
+}
+
+.wine-info {
+    text-align: center;
+    max-width: 400px;
+}
+
+.wine-info h3 {
+    font-size: 1.8rem;
+    color: var(--wine-burgundy);
+    margin-bottom: var(--spacing-xs);
+}
+
+.wine-info p {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+}
+
+.characteristics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    justify-content: center;
+}
+
+.characteristic {
+    background: var(--gold-light);
+    color: var(--wine-deep);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--gold-accent);
+}
+
+/* Education Panel */
+.education-panel {
+    background: var(--cream-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    border: 1px solid var(--gold-accent);
+    margin-bottom: var(--spacing-lg);
+}
+
+.education-panel h4 {
+    color: var(--wine-burgundy);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.education-panel p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Question Area */
+.question-area {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    border: 1px solid var(--gold-accent);
+}
+
+.question-area h3 {
+    text-align: center;
+    color: var(--wine-deep);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.3rem;
+}
+
+.answer-buttons {
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Buttons */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--wine-burgundy), var(--wine-deep));
+    color: var(--white);
+    border: 2px solid var(--gold-accent);
+    font-size: 1.1rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--wine-deep), var(--wine-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.btn-secondary {
+    background: var(--gold-light);
+    color: var(--wine-deep);
+    border: 2px solid var(--gold-accent);
+}
+
+.btn-secondary:hover {
+    background: var(--gold-accent);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow);
+}
+
+.btn-answer {
+    background: var(--cream-light);
+    color: var(--text-primary);
+    border: 2px solid var(--gold-accent);
+    text-align: left;
+    font-size: 1rem;
+    padding: var(--spacing-md);
+}
+
+.btn-answer:hover:not(.disabled) {
+    background: var(--gold-light);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.btn-answer.correct {
+    background: var(--success);
+    color: var(--white);
+    border-color: var(--success);
+}
+
+.btn-answer.incorrect {
+    background: var(--error);
+    color: var(--white);
+    border-color: var(--error);
+}
+
+.btn-answer.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Feedback */
+.feedback {
+    text-align: center;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+.feedback.correct {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.feedback.incorrect {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid var(--error);
+    color: var(--error);
+}
+
+.feedback strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.feedback p {
+    font-size: 0.95rem;
+    margin: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+}
+
+/* Level Complete Screen */
+.complete-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 2px solid var(--gold-accent);
+}
+
+.level-stats, .final-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--cream-light);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--gold-accent);
+    min-width: 120px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--wine-burgundy);
+    font-family: var(--font-heading);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .progress-bar {
+        width: 150px;
+    }
+    
+    .game-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .wine-display {
+        padding: var(--spacing-lg);
+    }
+    
+    #wine-glass {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .level-preview {
+        grid-template-columns: 1fr;
+    }
+    
+    .level-stats, .final-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button-group .btn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .start-content, .complete-content {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-sm);
+    }
+    
+    .wine-display {
+        padding: var(--spacing-md);
+    }
+    
+    #wine-glass {
+        width: 200px;
+        height: 250px;
+    }
+    
+    .wine-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .characteristics {
+        gap: var(--spacing-xs);
+    }
+    
+    .characteristic {
+        font-size: 0.8rem;
+        padding: 4px var(--spacing-xs);
+    }
+    
+    .answer-buttons {
+        gap: var(--spacing-xs);
+    }
+    
+    .btn-answer {
+        padding: var(--spacing-sm);
+        font-size: 0.95rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--wine-burgundy);
+    outline-offset: 2px;
+}
+
+/* Wine Glass Animation Enhancement */
+@keyframes wineSwirl {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#wine-glass:hover #wine-fill {
+    animation: wineSwirl 2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
