@@ -2,21 +2,50 @@
 // Educational wine recognition data with accurate color profiles
 
 const WINES = {
-    // RED WINES
-    cabernet_sauvignon: {
-        name: "Cabernet Sauvignon",
+    // RED WINES - Light to Dark Spectrum
+    pinot_noir: {
+        name: "Pinot Noir",
         type: "red",
         young: {
             color: {
-                main: "#722F37",
-                rim: "#8B4513", 
-                opacity: 0.95,
-                gradient: ["#5D1A1D", "#722F37", "#8B4513"]
+                main: "#C55A5A",
+                rim: "#E6B8B8",
+                opacity: 0.70,
+                gradient: ["#A73B3B", "#C55A5A", "#E6B8B8"]
             },
-            description: "Deep purple with inky center and violet edges",
-            characteristics: ["Full-bodied", "High tannins", "Blackcurrant", "Oak", "Cedar"],
+            description: "Translucent ruby red with light intensity",
+            characteristics: ["Light-bodied", "Low tannins", "Cherry", "Raspberry", "Floral", "Silky"],
+            age: "1-3 years",
+            educationalTip: "Pinot Noir's thin skins produce the lightest color intensity among red wines."
+        },
+        aged: {
+            color: {
+                main: "#D2B48C",
+                rim: "#F5DEB3",
+                opacity: 0.60,
+                gradient: ["#CD853F", "#D2B48C", "#F5DEB3"]
+            },
+            description: "Pale brick with pronounced orange rim, very translucent",
+            characteristics: ["Silky texture", "Mushroom", "Forest floor", "Dried cherry", "Truffle"],
+            age: "8+ years",
+            educationalTip: "Aged Pinot Noir becomes very pale, showing orange-brown tones."
+        }
+    },
+
+    sangiovese: {
+        name: "Sangiovese",
+        type: "red",
+        young: {
+            color: {
+                main: "#B22222",
+                rim: "#CD5C5C",
+                opacity: 0.80,
+                gradient: ["#8B0000", "#B22222", "#CD5C5C"]
+            },
+            description: "Medium ruby with cherry-red hues",
+            characteristics: ["Medium-bodied", "High acidity", "Sour cherry", "Herbs", "Leather"],
             age: "2-4 years",
-            educationalTip: "Young Cabernet Sauvignon shows intense purple color due to high anthocyanin levels from thick grape skins."
+            educationalTip: "Sangiovese shows characteristic cherry-red color with bright acidity."
         },
         aged: {
             color: {
@@ -25,39 +54,10 @@ const WINES = {
                 opacity: 0.75,
                 gradient: ["#8B4513", "#A0522D", "#DEB887"]
             },
-            description: "Brick red with orange rim and garnet core",
-            characteristics: ["Softened tannins", "Leather", "Tobacco", "Cedar", "Earth"],
-            age: "10+ years",
-            educationalTip: "Aged Cabernet develops brick-red hues as anthocyanins bind with tannins over time."
-        }
-    },
-
-    pinot_noir: {
-        name: "Pinot Noir",
-        type: "red",
-        young: {
-            color: {
-                main: "#8B3A3A",
-                rim: "#CD853F",
-                opacity: 0.75,
-                gradient: ["#722F37", "#8B3A3A", "#CD853F"]
-            },
-            description: "Light ruby red with translucent appearance",
-            characteristics: ["Light-bodied", "Low tannins", "Cherry", "Raspberry", "Floral"],
-            age: "1-3 years",
-            educationalTip: "Pinot Noir's thin skins produce lighter color intensity compared to Cabernet Sauvignon."
-        },
-        aged: {
-            color: {
-                main: "#CD853F",
-                rim: "#DEB887",
-                opacity: 0.65,
-                gradient: ["#A0522D", "#CD853F", "#DEB887"]
-            },
-            description: "Pale brick red with orange rim, very translucent",
-            characteristics: ["Silky texture", "Mushroom", "Forest floor", "Dried cherry"],
-            age: "8+ years",
-            educationalTip: "Aged Pinot Noir becomes very pale, almost orange, while maintaining its elegant character."
+            description: "Brick red with orange highlights",
+            characteristics: ["Earthy", "Dried herbs", "Leather", "Tobacco"],
+            age: "6+ years",
+            educationalTip: "Aged Sangiovese develops orange brick tones while maintaining acidity."
         }
     },
 
@@ -66,15 +66,15 @@ const WINES = {
         type: "red",
         young: {
             color: {
-                main: "#800020",
-                rim: "#A0522D",
-                opacity: 0.90,
-                gradient: ["#5D1A1D", "#800020", "#A0522D"]
+                main: "#722F37",
+                rim: "#8B4513",
+                opacity: 0.88,
+                gradient: ["#5D1A1D", "#722F37", "#8B4513"]
             },
-            description: "Deep ruby red with purple hints",
-            characteristics: ["Medium-bodied", "Smooth tannins", "Plum", "Black cherry", "Chocolate"],
+            description: "Deep ruby red with purple undertones",
+            characteristics: ["Medium to full-bodied", "Smooth tannins", "Plum", "Black cherry", "Chocolate"],
             age: "2-5 years",
-            educationalTip: "Merlot shows deeper color than Pinot Noir but less intensity than Cabernet Sauvignon."
+            educationalTip: "Merlot shows deeper color than Pinot Noir with softer, rounder tannins."
         },
         aged: {
             color: {
@@ -84,9 +84,38 @@ const WINES = {
                 gradient: ["#8B4513", "#A0522D", "#D2B48C"]
             },
             description: "Brick red with amber rim",
-            characteristics: ["Velvety texture", "Dried fruit", "Tobacco", "Leather"],
+            characteristics: ["Velvety texture", "Dried fruit", "Tobacco", "Leather", "Mocha"],
             age: "10+ years",
             educationalTip: "Aged Merlot develops beautiful brick-red color with amber highlights."
+        }
+    },
+
+    cabernet_sauvignon: {
+        name: "Cabernet Sauvignon",
+        type: "red",
+        young: {
+            color: {
+                main: "#4A0E0E",
+                rim: "#722F37",
+                opacity: 0.95,
+                gradient: ["#2F0A0A", "#4A0E0E", "#722F37"]
+            },
+            description: "Deep purple-black with inky center",
+            characteristics: ["Full-bodied", "High tannins", "Blackcurrant", "Oak", "Cedar", "Mint"],
+            age: "2-4 years",
+            educationalTip: "Young Cabernet Sauvignon shows intense purple-black color from thick grape skins."
+        },
+        aged: {
+            color: {
+                main: "#8B4513",
+                rim: "#DEB887",
+                opacity: 0.75,
+                gradient: ["#722F37", "#8B4513", "#DEB887"]
+            },
+            description: "Brick red with orange rim and garnet core",
+            characteristics: ["Softened tannins", "Leather", "Tobacco", "Cedar", "Earth", "Pencil lead"],
+            age: "10+ years",
+            educationalTip: "Aged Cabernet develops brick-red hues as anthocyanins bind with tannins."
         }
     },
 
@@ -95,104 +124,289 @@ const WINES = {
         type: "red",
         young: {
             color: {
-                main: "#4A0E0E",
-                rim: "#722F37",
+                main: "#1A0A0A",
+                rim: "#4A0E0E",
                 opacity: 0.98,
-                gradient: ["#2F0A0A", "#4A0E0E", "#722F37"]
+                gradient: ["#0D0404", "#1A0A0A", "#4A0E0E"]
             },
-            description: "Almost black with deep purple core",
-            characteristics: ["Full-bodied", "High tannins", "Blackberry", "Pepper", "Smoke"],
+            description: "Almost opaque black-purple with violet rim",
+            characteristics: ["Full-bodied", "High tannins", "Blackberry", "Black pepper", "Smoke", "Bacon"],
             age: "1-4 years",
-            educationalTip: "Young Syrah is among the darkest red wines, often appearing almost black in the glass."
+            educationalTip: "Young Syrah is the darkest red wine, often appearing almost black."
         },
         aged: {
             color: {
-                main: "#8B4513",
-                rim: "#DEB887",
+                main: "#722F37",
+                rim: "#CD853F",
                 opacity: 0.85,
-                gradient: ["#722F37", "#8B4513", "#DEB887"]
+                gradient: ["#5D1A1D", "#722F37", "#CD853F"]
             },
-            description: "Deep brick red with orange rim",
-            characteristics: ["Gamey", "Leather", "Dried herbs", "Smoked meat"],
+            description: "Deep garnet with orange rim",
+            characteristics: ["Gamey", "Leather", "Dried herbs", "Smoked meat", "Olive"],
             age: "8+ years",
             educationalTip: "Aged Syrah maintains depth while developing complex orange rim coloration."
         }
     },
 
-    // WHITE WINES
-    chardonnay: {
-        name: "Chardonnay",
-        type: "white",
+    nebbiolo: {
+        name: "Nebbiolo",
+        type: "red",
         young: {
             color: {
-                main: "#F5F5DC",
-                rim: "#FFFACD",
-                opacity: 0.95,
-                gradient: ["#F0E68C", "#F5F5DC", "#FFFACD"]
+                main: "#8B0000",
+                rim: "#CD5C5C",
+                opacity: 0.85,
+                gradient: ["#660000", "#8B0000", "#CD5C5C"]
             },
-            description: "Pale yellow with green hints",
-            characteristics: ["Medium-bodied", "Crisp acidity", "Green apple", "Citrus", "Mineral"],
-            age: "1-2 years",
-            educationalTip: "Unoaked Chardonnay shows pale, almost colorless appearance with green tints."
+            description: "Deep garnet with orange hints even when young",
+            characteristics: ["Full-bodied", "High tannins", "High acidity", "Rose", "Tar", "Truffle"],
+            age: "3-5 years",
+            educationalTip: "Nebbiolo shows orange hints even when young due to its unique anthocyanin profile."
         },
         aged: {
             color: {
-                main: "#FFD700",
-                rim: "#FFF8DC",
-                opacity: 0.90,
-                gradient: ["#DAA520", "#FFD700", "#FFF8DC"]
+                main: "#CD853F",
+                rim: "#F5DEB3",
+                opacity: 0.70,
+                gradient: ["#A0522D", "#CD853F", "#F5DEB3"]
             },
-            description: "Golden yellow with amber hints",
-            characteristics: ["Rich texture", "Butter", "Vanilla", "Toasted oak", "Honey"],
-            age: "3+ years",
-            educationalTip: "Aged, oaked Chardonnay develops golden color from oak aging and oxidation."
+            description: "Orange-brick with pale rim, highly translucent",
+            characteristics: ["Complex", "Leather", "Dried roses", "Tar", "White truffle"],
+            age: "10+ years",
+            educationalTip: "Aged Nebbiolo becomes very pale with distinctive orange-brick color."
         }
     },
 
+    // WHITE WINES - Pale to Golden Spectrum
     sauvignon_blanc: {
         name: "Sauvignon Blanc",
         type: "white",
         young: {
             color: {
-                main: "#F5FFFA",
+                main: "#F8FFF8",
                 rim: "#F0FFF0",
-                opacity: 0.90,
-                gradient: ["#E0FFE0", "#F5FFFA", "#F0FFF0"]
+                opacity: 0.85,
+                gradient: ["#E6FFE6", "#F8FFF8", "#F0FFF0"]
             },
-            description: "Very pale with green tints",
-            characteristics: ["Light-bodied", "High acidity", "Gooseberry", "Grass", "Grapefruit"],
-            age: "1 year",
-            educationalTip: "Sauvignon Blanc is among the palest wines, often with distinctive green tints."
+            description: "Almost colorless with distinct green tints",
+            characteristics: ["Light-bodied", "High acidity", "Gooseberry", "Cut grass", "Grapefruit", "Passion fruit"],
+            age: "Current vintage",
+            educationalTip: "Sauvignon Blanc is among the palest wines with distinctive green tints from early harvest."
         },
         aged: {
             color: {
                 main: "#FFFACD",
                 rim: "#FFEFD5",
-                opacity: 0.85,
+                opacity: 0.80,
                 gradient: ["#F0E68C", "#FFFACD", "#FFEFD5"]
             },
-            description: "Light gold with straw color",
-            characteristics: ["More complex", "Honey", "Lanolin", "Developed fruit"],
+            description: "Light straw with subtle golden hints",
+            characteristics: ["More complex", "Honey", "Lanolin", "Developed tropical fruit"],
             age: "2+ years",
-            educationalTip: "Aged Sauvignon Blanc loses its green tints and develops golden hues."
+            educationalTip: "Aged Sauvignon Blanc loses green tints and develops golden hues."
         }
     },
 
-    // ROSÉ WINES
+    pinot_grigio: {
+        name: "Pinot Grigio/Pinot Gris",
+        type: "white",
+        young: {
+            color: {
+                main: "#FFF8DC",
+                rim: "#FFFEF7",
+                opacity: 0.90,
+                gradient: ["#F5F5DC", "#FFF8DC", "#FFFEF7"]
+            },
+            description: "Pale straw with copper hints",
+            characteristics: ["Light-bodied", "Crisp acidity", "Pear", "Apple", "Citrus", "Mineral"],
+            age: "1-2 years",
+            educationalTip: "Pinot Grigio shows subtle copper tints from the pinkish grape skins."
+        },
+        aged: {
+            color: {
+                main: "#F5DEB3",
+                rim: "#FFF8DC",
+                opacity: 0.85,
+                gradient: ["#DEB887", "#F5DEB3", "#FFF8DC"]
+            },
+            description: "Light gold with copper undertones",
+            characteristics: ["Fuller texture", "Honey", "Spice", "Ripe pear"],
+            age: "3+ years",
+            educationalTip: "Aged Pinot Grigio develops golden tones while maintaining its copper hints."
+        }
+    },
+
+    chardonnay: {
+        name: "Chardonnay",
+        type: "white",
+        young: {
+            color: {
+                main: "#FFFACD",
+                rim: "#FFFFF0",
+                opacity: 0.92,
+                gradient: ["#F0E68C", "#FFFACD", "#FFFFF0"]
+            },
+            description: "Pale to medium yellow with green reflections",
+            characteristics: ["Medium-bodied", "Moderate acidity", "Green apple", "Citrus", "Mineral", "Steel"],
+            age: "1-2 years",
+            educationalTip: "Unoaked Chardonnay shows pale yellow with green hints indicating cool climate."
+        },
+        aged: {
+            color: {
+                main: "#DAA520",
+                rim: "#F5DEB3",
+                opacity: 0.88,
+                gradient: ["#B8860B", "#DAA520", "#F5DEB3"]
+            },
+            description: "Rich golden yellow with amber reflections",
+            characteristics: ["Full-bodied", "Rich texture", "Butter", "Vanilla", "Toasted oak", "Honey"],
+            age: "3+ years",
+            educationalTip: "Aged, oaked Chardonnay develops rich golden color from oak aging and oxidation."
+        }
+    },
+
+    riesling: {
+        name: "Riesling",
+        type: "white",
+        young: {
+            color: {
+                main: "#F0FFF0",
+                rim: "#F5FFFA",
+                opacity: 0.88,
+                gradient: ["#E0FFE0", "#F0FFF0", "#F5FFFA"]
+            },
+            description: "Very pale green-yellow with brilliant clarity",
+            characteristics: ["Light to medium-bodied", "High acidity", "Lime", "Green apple", "Petrol", "Slate"],
+            age: "1-3 years",
+            educationalTip: "Young Riesling shows pale green-yellow color with exceptional clarity."
+        },
+        aged: {
+            color: {
+                main: "#FFD700",
+                rim: "#FFFACD",
+                opacity: 0.85,
+                gradient: ["#DAA520", "#FFD700", "#FFFACD"]
+            },
+            description: "Deep golden with amber hints",
+            characteristics: ["Complex", "Honey", "Petrol", "Dried fruits", "Spice"],
+            age: "5+ years",
+            educationalTip: "Aged Riesling develops deep golden color while maintaining vibrant acidity."
+        }
+    },
+
+    gewurztraminer: {
+        name: "Gewürztraminer",
+        type: "white",
+        young: {
+            color: {
+                main: "#FFEBCD",
+                rim: "#FFF8DC",
+                opacity: 0.90,
+                gradient: ["#DEB887", "#FFEBCD", "#FFF8DC"]
+            },
+            description: "Golden yellow with pink-copper tints",
+            characteristics: ["Medium-bodied", "Low acidity", "Lychee", "Rose", "Spice", "Ginger"],
+            age: "1-2 years",
+            educationalTip: "Gewürztraminer shows distinctive pink-copper color from aromatic compounds."
+        },
+        aged: {
+            color: {
+                main: "#DEB887",
+                rim: "#F5DEB3",
+                opacity: 0.85,
+                gradient: ["#CD853F", "#DEB887", "#F5DEB3"]
+            },
+            description: "Deep golden with bronze highlights",
+            characteristics: ["Rich", "Honey", "Dried fruits", "Exotic spices"],
+            age: "3+ years",
+            educationalTip: "Aged Gewürztraminer develops deep golden-bronze color while maintaining aromatic intensity."
+        }
+    },
+
+    // ROSÉ WINES - Pale to Deep Pink Spectrum
     provence_rose: {
         name: "Provence Rosé",
         type: "rose",
         young: {
             color: {
-                main: "#FFB6C1",
-                rim: "#FFC0CB",
-                opacity: 0.70,
-                gradient: ["#FF91A4", "#FFB6C1", "#FFC0CB"]
+                main: "#FFF0F5",
+                rim: "#FFE4E1",
+                opacity: 0.60,
+                gradient: ["#FFDAB9", "#FFF0F5", "#FFE4E1"]
             },
-            description: "Pale pink with salmon hints",
-            characteristics: ["Light-bodied", "Crisp", "Strawberry", "Watermelon", "Herbs"],
+            description: "Very pale pink with onion skin color",
+            characteristics: ["Light-bodied", "Bone dry", "Subtle berry", "Herbs", "Mineral", "Citrus zest"],
             age: "Current vintage",
-            educationalTip: "Provence rosé gets its pale color from brief skin contact with red grapes."
+            educationalTip: "Provence rosé gets its extremely pale color from minimal skin contact, often called 'onion skin'."
+        }
+    },
+
+    pinot_noir_rose: {
+        name: "Pinot Noir Rosé",
+        type: "rose",
+        young: {
+            color: {
+                main: "#FFB6C1",
+                rim: "#FFCCCB",
+                opacity: 0.75,
+                gradient: ["#FF91A4", "#FFB6C1", "#FFCCCB"]
+            },
+            description: "Light salmon pink with coral hints",
+            characteristics: ["Light-bodied", "Crisp acidity", "Strawberry", "Raspberry", "Floral"],
+            age: "Current vintage",
+            educationalTip: "Pinot Noir rosé shows more color intensity than Provence style due to grape variety."
+        }
+    },
+
+    sangiovese_rose: {
+        name: "Sangiovese Rosé",
+        type: "rose",
+        young: {
+            color: {
+                main: "#FF69B4",
+                rim: "#FFB6C1",
+                opacity: 0.80,
+                gradient: ["#FF1493", "#FF69B4", "#FFB6C1"]
+            },
+            description: "Medium pink with cherry-red hints",
+            characteristics: ["Medium-bodied", "Higher acidity", "Cherry", "Herbs", "Spice"],
+            age: "Current vintage",
+            educationalTip: "Sangiovese rosé shows deeper color due to the grape's natural pigmentation."
+        }
+    },
+
+    // SPARKLING WINES
+    champagne: {
+        name: "Champagne",
+        type: "sparkling",
+        young: {
+            color: {
+                main: "#FFFACD",
+                rim: "#FFFFF0",
+                opacity: 0.90,
+                gradient: ["#F0E68C", "#FFFACD", "#FFFFF0"]
+            },
+            description: "Pale golden with fine, persistent bubbles",
+            characteristics: ["Light-bodied", "High acidity", "Citrus", "Brioche", "Yeast", "Apple"],
+            age: "3+ years",
+            educationalTip: "Champagne's golden color comes from extended lees aging and blending techniques."
+        }
+    },
+
+    prosecco: {
+        name: "Prosecco",
+        type: "sparkling",
+        young: {
+            color: {
+                main: "#F5FFFA",
+                rim: "#F0FFF0",
+                opacity: 0.85,
+                gradient: ["#E0FFE0", "#F5FFFA", "#F0FFF0"]
+            },
+            description: "Very pale with green tints and lively bubbles",
+            characteristics: ["Light-bodied", "Fresh acidity", "Green apple", "Pear", "White flowers"],
+            age: "1-2 years",
+            educationalTip: "Prosecco's pale color reflects its tank method production and fresh, fruity character."
         }
     }
 };
@@ -200,93 +414,205 @@ const WINES = {
 // Game Levels Configuration
 const LEVELS = {
     1: {
-        name: "Wine Colors",
-        description: "Learn basic wine color identification",
+        name: "Light to Dark Red Wines",
+        description: "Identify red grape varieties by their color intensity",
         questions: [
+            {
+                wine: "pinot_noir",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Pinot Noir", "Merlot", "Cabernet Sauvignon", "Syrah"],
+                correct: 0,
+                explanation: "The translucent ruby color with light intensity is characteristic of Pinot Noir's thin skins."
+            },
+            {
+                wine: "sangiovese",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Pinot Noir", "Sangiovese", "Cabernet Sauvignon", "Syrah"],
+                correct: 1,
+                explanation: "The medium ruby color with cherry-red hues and high acidity are classic Sangiovese traits."
+            },
+            {
+                wine: "merlot",
+                age: "young", 
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sangiovese", "Merlot", "Cabernet Sauvignon", "Syrah"],
+                correct: 1,
+                explanation: "The deep ruby color with smooth tannins and plum/chocolate notes are typical of Merlot."
+            },
             {
                 wine: "cabernet_sauvignon",
                 age: "young",
-                question: "Based on the wine information above, what type of wine is this?",
-                answers: ["Red Wine", "White Wine", "Rosé Wine", "Sparkling Wine"],
-                correct: 0,
-                explanation: "The deep purple color is characteristic of red wines, particularly young Cabernet Sauvignon."
-            },
-            {
-                wine: "chardonnay",
-                age: "young",
-                question: "Based on the wine information above, what type of wine is this?",
-                answers: ["Red Wine", "White Wine", "Rosé Wine", "Fortified Wine"],
-                correct: 1,
-                explanation: "The pale yellow color with green hints is typical of white wines like Chardonnay."
-            },
-            {
-                wine: "provence_rose",
-                age: "young", 
-                question: "Based on the wine information above, what type of wine is this?",
-                answers: ["Light Red", "White Wine", "Rosé Wine", "Champagne"],
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Merlot", "Nebbiolo", "Cabernet Sauvignon", "Syrah"],
                 correct: 2,
-                explanation: "The pale pink color is characteristic of rosé wines, made with brief red grape skin contact."
+                explanation: "The deep purple-black color with high tannins and blackcurrant notes are classic Cabernet Sauvignon."
+            },
+            {
+                wine: "syrah",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Cabernet Sauvignon", "Merlot", "Nebbiolo", "Syrah"],
+                correct: 3,
+                explanation: "The almost opaque black-purple color and pepper/smoke characteristics are distinctive of Syrah."
+            },
+            {
+                wine: "nebbiolo",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sangiovese", "Nebbiolo", "Merlot", "Syrah"],
+                correct: 1,
+                explanation: "The deep garnet color with orange hints even when young is unique to Nebbiolo."
             }
         ]
     },
     
     2: {
-        name: "Grape Varieties", 
-        description: "Distinguish between different grape varieties",
+        name: "White Wine Spectrum", 
+        description: "Distinguish white grape varieties from pale to golden",
         questions: [
             {
-                wine: "pinot_noir",
+                wine: "sauvignon_blanc",
                 age: "young",
-                question: "Which red grape variety is this?",
-                answers: ["Cabernet Sauvignon", "Pinot Noir", "Merlot", "Syrah"],
-                correct: 1,
-                explanation: "The lighter, translucent ruby color is characteristic of Pinot Noir's thin skins."
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sauvignon Blanc", "Pinot Grigio", "Chardonnay", "Riesling"],
+                correct: 0,
+                explanation: "The almost colorless appearance with green tints and gooseberry/grass notes are classic Sauvignon Blanc."
             },
             {
-                wine: "syrah",
+                wine: "pinot_grigio",
                 age: "young",
-                question: "Which grape variety shows this intense dark color?",
-                answers: ["Pinot Noir", "Merlot", "Syrah", "Sangiovese"],
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sauvignon Blanc", "Pinot Grigio", "Chardonnay", "Gewürztraminer"],
+                correct: 1,
+                explanation: "The pale straw color with copper hints comes from Pinot Grigio's pinkish grape skins."
+            },
+            {
+                wine: "chardonnay",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Pinot Grigio", "Chardonnay", "Riesling", "Gewürztraminer"],
+                correct: 1,
+                explanation: "The pale to medium yellow with green reflections indicates unoaked Chardonnay."
+            },
+            {
+                wine: "riesling",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Chardonnay", "Sauvignon Blanc", "Riesling", "Gewürztraminer"],
                 correct: 2,
-                explanation: "Syrah/Shiraz produces some of the darkest red wines, often appearing almost black."
+                explanation: "The very pale green-yellow with brilliant clarity and high acidity are classic Riesling traits."
+            },
+            {
+                wine: "gewurztraminer",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Chardonnay", "Riesling", "Pinot Grigio", "Gewürztraminer"],
+                correct: 3,
+                explanation: "The golden yellow with pink-copper tints and exotic spice characteristics identify Gewürztraminer."
+            },
+            {
+                wine: "chardonnay",
+                age: "aged",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Aged Riesling", "Aged Chardonnay", "Aged Gewürztraminer", "Aged Pinot Grigio"],
+                correct: 1,
+                explanation: "The rich golden color with butter/vanilla/oak characteristics indicate aged, oaked Chardonnay."
             }
         ]
     },
 
     3: {
-        name: "Wine Aging",
-        description: "Understand how aging affects wine color",
+        name: "Rosé and Sparkling Wines",
+        description: "Identify different styles of rosé and sparkling wines",
         questions: [
             {
-                wine: "cabernet_sauvignon",
-                age: "aged",
-                question: "How old is this Cabernet Sauvignon approximately?",
-                answers: ["1-3 years", "4-6 years", "7-10 years", "10+ years"],
-                correct: 3,
-                explanation: "The brick-red color with orange rim indicates significant aging, typically 10+ years."
+                wine: "provence_rose",
+                age: "young",
+                question: "Based on the wine analysis above, which wine style is this?",
+                answers: ["Provence Rosé", "Pinot Noir Rosé", "Sangiovese Rosé", "Light Red Wine"],
+                correct: 0,
+                explanation: "The extremely pale 'onion skin' color with mineral characteristics are typical of Provence rosé."
             },
             {
-                wine: "chardonnay",
-                age: "aged", 
-                question: "What does this golden color indicate?",
-                answers: ["Young wine", "Oaked and aged", "Faulty wine", "Sweet wine"],
+                wine: "pinot_noir_rose",
+                age: "young",
+                question: "Based on the wine analysis above, which wine style is this?",
+                answers: ["Provence Rosé", "Pinot Noir Rosé", "Sangiovese Rosé", "White Wine"],
                 correct: 1,
-                explanation: "Golden color in Chardonnay indicates oak aging and bottle maturation."
+                explanation: "The light salmon pink color with strawberry/raspberry notes indicate Pinot Noir rosé."
+            },
+            {
+                wine: "sangiovese_rose",
+                age: "young",
+                question: "Based on the wine analysis above, which wine style is this?",
+                answers: ["Pinot Noir Rosé", "Provence Rosé", "Sangiovese Rosé", "Light Red Wine"],
+                correct: 2,
+                explanation: "The medium pink with cherry-red hints and higher acidity indicate Sangiovese rosé."
+            },
+            {
+                wine: "champagne",
+                age: "young",
+                question: "Based on the wine analysis above, which sparkling wine is this?",
+                answers: ["Champagne", "Prosecco", "Cava", "Crémant"],
+                correct: 0,
+                explanation: "The pale golden color with fine bubbles and brioche/yeast notes indicate Champagne."
+            },
+            {
+                wine: "prosecco",
+                age: "young",
+                question: "Based on the wine analysis above, which sparkling wine is this?",
+                answers: ["Champagne", "Prosecco", "Cava", "Sekt"],
+                correct: 1,
+                explanation: "The very pale color with green tints and fresh, fruity character indicate Prosecco."
             }
         ]
     },
 
     4: {
-        name: "Regional Styles",
-        description: "Identify terroir effects on wine appearance", 
+        name: "Aged Wine Master Challenge",
+        description: "Advanced recognition of aged wine characteristics", 
         questions: [
             {
+                wine: "cabernet_sauvignon",
+                age: "aged",
+                question: "Based on the wine analysis above, which aged variety is this?",
+                answers: ["Aged Cabernet Sauvignon", "Aged Merlot", "Aged Syrah", "Aged Nebbiolo"],
+                correct: 0,
+                explanation: "The brick-red color with leather/tobacco notes indicates aged Cabernet Sauvignon."
+            },
+            {
                 wine: "pinot_noir",
-                age: "young",
-                question: "This pale red color suggests which wine region style?",
-                answers: ["Bordeaux", "Burgundy", "Barossa Valley", "Napa Valley"],
+                age: "aged",
+                question: "Based on the wine analysis above, which aged variety is this?",
+                answers: ["Aged Sangiovese", "Aged Pinot Noir", "Aged Merlot", "Aged Nebbiolo"],
                 correct: 1,
-                explanation: "The elegant, pale ruby color is characteristic of Burgundy Pinot Noir style."
+                explanation: "The very pale brick with orange rim and forest floor notes indicate aged Pinot Noir."
+            },
+            {
+                wine: "nebbiolo",
+                age: "aged",
+                question: "Based on the wine analysis above, which aged variety is this?",
+                answers: ["Aged Pinot Noir", "Aged Sangiovese", "Aged Nebbiolo", "Aged Merlot"],
+                correct: 2,
+                explanation: "The orange-brick color with white truffle and tar notes are classic aged Nebbiolo."
+            },
+            {
+                wine: "riesling",
+                age: "aged",
+                question: "Based on the wine analysis above, which aged white variety is this?",
+                answers: ["Aged Chardonnay", "Aged Riesling", "Aged Gewürztraminer", "Aged Chenin Blanc"],
+                correct: 1,
+                explanation: "The deep golden color with petrol/honey notes and maintained acidity indicate aged Riesling."
+            },
+            {
+                wine: "syrah",
+                age: "aged",
+                question: "Based on the wine analysis above, which aged variety is this?",
+                answers: ["Aged Cabernet Sauvignon", "Aged Syrah", "Aged Merlot", "Aged Nebbiolo"],
+                correct: 1,
+                explanation: "The deep garnet color with gamey, leather notes indicate aged Syrah/Shiraz."
             }
         ]
     }

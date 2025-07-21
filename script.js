@@ -125,10 +125,12 @@ class WineQuest {
         // Update wine glass color
         this.updateWineGlassColor(wineData.color);
         
-        // Update wine information
-        document.getElementById('wine-name').textContent = wine.name;
+        // Update wine information (hide wine name)
         document.getElementById('wine-description').textContent = wineData.description;
-        document.getElementById('educational-tip').textContent = wineData.educationalTip;
+        
+        // Create generic educational tip without revealing wine name
+        const genericTip = this.createGenericTip(wineData, wine.type);
+        document.getElementById('educational-tip').textContent = genericTip;
         
         // Update characteristics
         const characteristicsContainer = document.getElementById('wine-characteristics');
@@ -165,6 +167,32 @@ class WineQuest {
         setTimeout(() => {
             wineGlass.style.transform = 'scale(1)';
         }, 200);
+    }
+
+    createGenericTip(wineData, wineType) {
+        const tips = {
+            red: [
+                "This wine's color intensity comes from grape skin contact during fermentation.",
+                "The depth of color often indicates the wine's body and tannin level.",
+                "Dark colors suggest thick-skinned grape varieties with concentrated flavors.",
+                "Color rim variations can indicate age and grape variety characteristics."
+            ],
+            white: [
+                "White wines get minimal skin contact, resulting in pale colors.",
+                "Golden hues often indicate oak aging or bottle maturation.",
+                "Green tints suggest young, crisp wines with bright acidity.",
+                "Color depth can reveal the wine's richness and texture."
+            ],
+            rose: [
+                "Rosé color comes from brief contact with red grape skins.",
+                "Pale pink indicates delicate, fresh winemaking style.",
+                "Salmon hues suggest slightly richer, more structured wines.",
+                "The color intensity reflects the grape variety and skin contact time."
+            ]
+        };
+
+        const typeTips = tips[wineType] || tips.red;
+        return typeTips[Math.floor(Math.random() * typeTips.length)];
     }
 
     handleAnswer(answerIndex, buttonElement) {
