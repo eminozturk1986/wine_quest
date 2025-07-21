@@ -411,112 +411,112 @@ const WINES = {
     }
 };
 
-// Game Levels Configuration
+// Game Levels Configuration - Mixed Red/White Questions
 const LEVELS = {
     1: {
-        name: "Light to Dark Red Wines",
-        description: "Identify red grape varieties by their color intensity",
+        name: "Wine Variety Recognition - Beginner",
+        description: "Identify common wine varieties by their visual characteristics",
         questions: [
             {
                 wine: "pinot_noir",
                 age: "young",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Pinot Noir", "Merlot", "Cabernet Sauvignon", "Syrah"],
+                answers: ["Pinot Noir", "Merlot", "Chardonnay", "Sauvignon Blanc"],
                 correct: 0,
                 explanation: "The translucent ruby color with light intensity is characteristic of Pinot Noir's thin skins."
             },
             {
-                wine: "sangiovese",
+                wine: "sauvignon_blanc",
                 age: "young",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Pinot Noir", "Sangiovese", "Cabernet Sauvignon", "Syrah"],
+                answers: ["Chardonnay", "Sauvignon Blanc", "Pinot Noir", "Riesling"],
                 correct: 1,
-                explanation: "The medium ruby color with cherry-red hues and high acidity are classic Sangiovese traits."
+                explanation: "The almost colorless appearance with green tints and gooseberry/grass notes are classic Sauvignon Blanc."
             },
             {
                 wine: "merlot",
                 age: "young", 
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Sangiovese", "Merlot", "Cabernet Sauvignon", "Syrah"],
+                answers: ["Cabernet Sauvignon", "Merlot", "Chardonnay", "Pinot Grigio"],
                 correct: 1,
                 explanation: "The deep ruby color with smooth tannins and plum/chocolate notes are typical of Merlot."
+            },
+            {
+                wine: "chardonnay",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sauvignon Blanc", "Chardonnay", "Pinot Noir", "Gewürztraminer"],
+                correct: 1,
+                explanation: "The pale to medium yellow with green reflections indicates unoaked Chardonnay."
             },
             {
                 wine: "cabernet_sauvignon",
                 age: "young",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Merlot", "Nebbiolo", "Cabernet Sauvignon", "Syrah"],
+                answers: ["Merlot", "Syrah", "Cabernet Sauvignon", "Riesling"],
                 correct: 2,
                 explanation: "The deep purple-black color with high tannins and blackcurrant notes are classic Cabernet Sauvignon."
-            },
-            {
-                wine: "syrah",
-                age: "young",
-                question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Cabernet Sauvignon", "Merlot", "Nebbiolo", "Syrah"],
-                correct: 3,
-                explanation: "The almost opaque black-purple color and pepper/smoke characteristics are distinctive of Syrah."
-            },
-            {
-                wine: "nebbiolo",
-                age: "young",
-                question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Sangiovese", "Nebbiolo", "Merlot", "Syrah"],
-                correct: 1,
-                explanation: "The deep garnet color with orange hints even when young is unique to Nebbiolo."
-            }
-        ]
-    },
-    
-    2: {
-        name: "White Wine Spectrum", 
-        description: "Distinguish white grape varieties from pale to golden",
-        questions: [
-            {
-                wine: "sauvignon_blanc",
-                age: "young",
-                question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Sauvignon Blanc", "Pinot Grigio", "Chardonnay", "Riesling"],
-                correct: 0,
-                explanation: "The almost colorless appearance with green tints and gooseberry/grass notes are classic Sauvignon Blanc."
-            },
-            {
-                wine: "pinot_grigio",
-                age: "young",
-                question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Sauvignon Blanc", "Pinot Grigio", "Chardonnay", "Gewürztraminer"],
-                correct: 1,
-                explanation: "The pale straw color with copper hints comes from Pinot Grigio's pinkish grape skins."
-            },
-            {
-                wine: "chardonnay",
-                age: "young",
-                question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Pinot Grigio", "Chardonnay", "Riesling", "Gewürztraminer"],
-                correct: 1,
-                explanation: "The pale to medium yellow with green reflections indicates unoaked Chardonnay."
             },
             {
                 wine: "riesling",
                 age: "young",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Chardonnay", "Sauvignon Blanc", "Riesling", "Gewürztraminer"],
+                answers: ["Chardonnay", "Sauvignon Blanc", "Riesling", "Pinot Noir"],
                 correct: 2,
                 explanation: "The very pale green-yellow with brilliant clarity and high acidity are classic Riesling traits."
+            }
+        ]
+    },
+    
+    2: {
+        name: "Wine Variety Recognition - Intermediate", 
+        description: "More challenging variety identification with mixed types",
+        questions: [
+            {
+                wine: "sangiovese",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Pinot Noir", "Sangiovese", "Pinot Grigio", "Gewürztraminer"],
+                correct: 1,
+                explanation: "The medium ruby color with cherry-red hues and high acidity are classic Sangiovese traits."
+            },
+            {
+                wine: "pinot_grigio",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sauvignon Blanc", "Pinot Grigio", "Merlot", "Syrah"],
+                correct: 1,
+                explanation: "The pale straw color with copper hints comes from Pinot Grigio's pinkish grape skins."
+            },
+            {
+                wine: "syrah",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Cabernet Sauvignon", "Nebbiolo", "Syrah", "Chardonnay"],
+                correct: 2,
+                explanation: "The almost opaque black-purple color and pepper/smoke characteristics are distinctive of Syrah."
             },
             {
                 wine: "gewurztraminer",
                 age: "young",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Chardonnay", "Riesling", "Pinot Grigio", "Gewürztraminer"],
-                correct: 3,
+                answers: ["Chardonnay", "Riesling", "Gewürztraminer", "Merlot"],
+                correct: 2,
                 explanation: "The golden yellow with pink-copper tints and exotic spice characteristics identify Gewürztraminer."
+            },
+            {
+                wine: "nebbiolo",
+                age: "young",
+                question: "Based on the wine analysis above, which grape variety is this?",
+                answers: ["Sangiovese", "Nebbiolo", "Sauvignon Blanc", "Pinot Grigio"],
+                correct: 1,
+                explanation: "The deep garnet color with orange hints even when young is unique to Nebbiolo."
             },
             {
                 wine: "chardonnay",
                 age: "aged",
                 question: "Based on the wine analysis above, which grape variety is this?",
-                answers: ["Aged Riesling", "Aged Chardonnay", "Aged Gewürztraminer", "Aged Pinot Grigio"],
+                answers: ["Aged Riesling", "Aged Chardonnay", "Young Gewürztraminer", "Aged Pinot Noir"],
                 correct: 1,
                 explanation: "The rich golden color with butter/vanilla/oak characteristics indicate aged, oaked Chardonnay."
             }
@@ -524,69 +524,77 @@ const LEVELS = {
     },
 
     3: {
-        name: "Rosé and Sparkling Wines",
-        description: "Identify different styles of rosé and sparkling wines",
+        name: "Advanced Wine Recognition",
+        description: "Rosé, sparkling, and challenging varieties",
         questions: [
             {
                 wine: "provence_rose",
                 age: "young",
                 question: "Based on the wine analysis above, which wine style is this?",
-                answers: ["Provence Rosé", "Pinot Noir Rosé", "Sangiovese Rosé", "Light Red Wine"],
+                answers: ["Provence Rosé", "Sauvignon Blanc", "Pinot Noir", "Champagne"],
                 correct: 0,
                 explanation: "The extremely pale 'onion skin' color with mineral characteristics are typical of Provence rosé."
             },
             {
-                wine: "pinot_noir_rose",
+                wine: "champagne",
                 age: "young",
-                question: "Based on the wine analysis above, which wine style is this?",
-                answers: ["Provence Rosé", "Pinot Noir Rosé", "Sangiovese Rosé", "White Wine"],
+                question: "Based on the wine analysis above, which wine is this?",
+                answers: ["Chardonnay", "Champagne", "Riesling", "Gewürztraminer"],
                 correct: 1,
-                explanation: "The light salmon pink color with strawberry/raspberry notes indicate Pinot Noir rosé."
+                explanation: "The pale golden color with fine bubbles and brioche/yeast notes indicate Champagne."
             },
             {
                 wine: "sangiovese_rose",
                 age: "young",
                 question: "Based on the wine analysis above, which wine style is this?",
-                answers: ["Pinot Noir Rosé", "Provence Rosé", "Sangiovese Rosé", "Light Red Wine"],
+                answers: ["Pinot Noir", "Provence Rosé", "Sangiovese Rosé", "Sauvignon Blanc"],
                 correct: 2,
                 explanation: "The medium pink with cherry-red hints and higher acidity indicate Sangiovese rosé."
-            },
-            {
-                wine: "champagne",
-                age: "young",
-                question: "Based on the wine analysis above, which sparkling wine is this?",
-                answers: ["Champagne", "Prosecco", "Cava", "Crémant"],
-                correct: 0,
-                explanation: "The pale golden color with fine bubbles and brioche/yeast notes indicate Champagne."
             },
             {
                 wine: "prosecco",
                 age: "young",
                 question: "Based on the wine analysis above, which sparkling wine is this?",
-                answers: ["Champagne", "Prosecco", "Cava", "Sekt"],
+                answers: ["Champagne", "Prosecco", "Sauvignon Blanc", "Riesling"],
                 correct: 1,
                 explanation: "The very pale color with green tints and fresh, fruity character indicate Prosecco."
+            },
+            {
+                wine: "pinot_noir_rose",
+                age: "young",
+                question: "Based on the wine analysis above, which wine style is this?",
+                answers: ["Provence Rosé", "Pinot Noir Rosé", "Chardonnay", "Sangiovese"],
+                correct: 1,
+                explanation: "The light salmon pink color with strawberry/raspberry notes indicate Pinot Noir rosé."
             }
         ]
     },
 
     4: {
-        name: "Aged Wine Master Challenge",
-        description: "Advanced recognition of aged wine characteristics", 
+        name: "Master Level Challenge",
+        description: "Expert-level recognition of aged wines and complex varieties", 
         questions: [
             {
                 wine: "cabernet_sauvignon",
                 age: "aged",
                 question: "Based on the wine analysis above, which aged variety is this?",
-                answers: ["Aged Cabernet Sauvignon", "Aged Merlot", "Aged Syrah", "Aged Nebbiolo"],
+                answers: ["Aged Cabernet Sauvignon", "Aged Chardonnay", "Aged Syrah", "Aged Riesling"],
                 correct: 0,
                 explanation: "The brick-red color with leather/tobacco notes indicates aged Cabernet Sauvignon."
+            },
+            {
+                wine: "riesling",
+                age: "aged",
+                question: "Based on the wine analysis above, which aged variety is this?",
+                answers: ["Aged Chardonnay", "Aged Riesling", "Aged Pinot Noir", "Gewürztraminer"],
+                correct: 1,
+                explanation: "The deep golden color with petrol/honey notes and maintained acidity indicate aged Riesling."
             },
             {
                 wine: "pinot_noir",
                 age: "aged",
                 question: "Based on the wine analysis above, which aged variety is this?",
-                answers: ["Aged Sangiovese", "Aged Pinot Noir", "Aged Merlot", "Aged Nebbiolo"],
+                answers: ["Aged Sangiovese", "Aged Pinot Noir", "Provence Rosé", "Aged Chardonnay"],
                 correct: 1,
                 explanation: "The very pale brick with orange rim and forest floor notes indicate aged Pinot Noir."
             },
@@ -594,23 +602,15 @@ const LEVELS = {
                 wine: "nebbiolo",
                 age: "aged",
                 question: "Based on the wine analysis above, which aged variety is this?",
-                answers: ["Aged Pinot Noir", "Aged Sangiovese", "Aged Nebbiolo", "Aged Merlot"],
+                answers: ["Aged Pinot Noir", "Aged Sangiovese", "Aged Nebbiolo", "Aged Chardonnay"],
                 correct: 2,
                 explanation: "The orange-brick color with white truffle and tar notes are classic aged Nebbiolo."
-            },
-            {
-                wine: "riesling",
-                age: "aged",
-                question: "Based on the wine analysis above, which aged white variety is this?",
-                answers: ["Aged Chardonnay", "Aged Riesling", "Aged Gewürztraminer", "Aged Chenin Blanc"],
-                correct: 1,
-                explanation: "The deep golden color with petrol/honey notes and maintained acidity indicate aged Riesling."
             },
             {
                 wine: "syrah",
                 age: "aged",
                 question: "Based on the wine analysis above, which aged variety is this?",
-                answers: ["Aged Cabernet Sauvignon", "Aged Syrah", "Aged Merlot", "Aged Nebbiolo"],
+                answers: ["Aged Cabernet Sauvignon", "Aged Syrah", "Aged Riesling", "Aged Chardonnay"],
                 correct: 1,
                 explanation: "The deep garnet color with gamey, leather notes indicate aged Syrah/Shiraz."
             }
